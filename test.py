@@ -1,5 +1,3 @@
-print ("Hello World!")
-
 #	Install package:
 #	pandas / numpy / pytz	-	pip3 install pandas
 #	matplotlib				-	pip3 install matplotlib
@@ -8,23 +6,26 @@ print ("Hello World!")
 
 import matplotlib.pyplot as plt
 import numpy as np
-from numpy import genfromtxt
-
-row = 28
-col = 28
-
-index = 1
-
-training = genfromtxt('./Data/train_sample.csv', delimiter = ',')
+import pandas as pd
 
 
-# label = training[index, 0]
-# data = training[index, [1,2,3,4,5]]
-# print(label)
-# print(data)
+# Image Index to test
+index = 35
 
 
-#X = np.random.random((100, 100)) # sample 2D array
-#plt.imshow(X, cmap="gray")
-#plt.show()
+training = pd.read_csv(	"./Data/train.csv", 
+						delimiter = ',',
+						header = 0, 
+						dtype = int, 
+						skipinitialspace = True,
+						nrows = 100
+						)
+
+headers = training.columns.tolist()
+pixels_cols = headers[1:785]
+image = np.array((training.loc[index, pixels_cols]).tolist())
+image.shape = (row, col)
+
+plt.imshow(image, cmap="gray")
+plt.show()
 
