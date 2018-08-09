@@ -29,3 +29,7 @@ image.shape = (row, col)
 plt.imshow(image, cmap="gray")
 plt.show()
 
+
+
+
+print(training.shape)
