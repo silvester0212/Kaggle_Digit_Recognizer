@@ -1,9 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import sys
 
-def display(df, index):
+
+def display(df, index, pixels_colnames):
 
 	# Width Size of Image
 	row = 28
@@ -11,14 +11,8 @@ def display(df, index):
 	# Height Size of Image
 	col = 28
 
-	# Columns list
-	headers = df.columns.tolist()
-
-	# Columns for Pixels only
-	pixels_cols = headers[1:785]
-
 	# Get Image
-	image = np.array((df.loc[index, pixels_cols]).tolist())
+	image = np.array((df.loc[index, pixels_colnames]).tolist())
 	image.shape = (row, col)
 
 	# Display Image
@@ -28,12 +22,13 @@ def display(df, index):
 	return;
 
 
-imageNo = int(sys.argv[1])
-training = pd.read_csv(	"./Data/train.csv", 
-						delimiter = ',',
-						header = 0, 
-						dtype = int, 
-						skipinitialspace = True,
-						nrows = imageNo + 1
-						)
-display(df = training, index = imageNo)
+# imageNo = int(sys.argv[1]) - 1
+# # imageNo = 0
+# training = pd.read_csv(	"./Data/test.csv", 
+# 						delimiter = ',',
+# 						header = 0, 
+# 						dtype = int, 
+# 						skipinitialspace = True,
+# 						nrows = imageNo + 1
+# 						)
+# display(df = training, index = imageNo, pixel_col_start = 0, pixel_col_end = 784)

@@ -12,12 +12,12 @@ def samplePrt(df, row, col):
 
 	return;
 
-training = pd.read_csv(	"./Data/train.csv", 
-						delimiter = ',',
-						header = 0, 
-						dtype = int, 
-						skipinitialspace = True,
-						nrows = 100
-						)
+# training = pd.read_csv(	"./Data/train.csv", 
+# 						delimiter = ',',
+# 						header = 0, 
+# 						dtype = int, 
+# 						skipinitialspace = True,
+# 						# nrows = 100
+# 						)
 
-samplePrt(training, 10, 10)
+# samplePrt(training, 10, 10)
